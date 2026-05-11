@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Playfair+Display:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+  --border: #00000010;
+  --selection: #6366f130;
+}
+
+.dark {
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #111111;
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: #ffffff10;
+  --selection: #6366f140;
+}
+
+@layer base {
+  * {
+    @apply border-[var(--border)];
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] font-body transition-colors duration-500 antialiased;
+    overflow-x: hidden;
+    cursor: auto;
+  }
+
+  ::selection {
+    @apply bg-[var(--selection)] text-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-2xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-2xl border border-white/5;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden px-8 py-4 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20;
+  }
+
+  .btn-outline {
+    @apply px-8 py-4 rounded-2xl border-2 border-primary/20 text-[var(--text-primary)] font-bold hover:bg-primary/5 hover:border-primary/50 transition-all duration-300;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[var(--bg-primary)];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-primary/40 to-secondary/40 rounded-full hover:from-primary/60 hover:to-secondary/60 transition-all;
+}
+
+/* Modern Decorative Backgrounds */
+.mesh-gradient {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 0.5;
+}
+
+/* Form Styles */
+input:focus, textarea:focus, select:focus {
+  @apply ring-2 ring-primary/20 border-primary/50 !important;
+}
+
+/* Typography refinements */
+.font-heading {
+  letter-spacing: -0.02em;
+}

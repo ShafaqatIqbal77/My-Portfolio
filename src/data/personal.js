@@ -1,0 +1,28 @@
+export const personal = {
+  name: "Shafaqat Iqbal",
+  title: "Full Stack Developer",
+  titles: [
+    "Full Stack Developer",
+    "Devops Engineer",
+    "React.js Expert",
+    "UI/UX Designer",
+    "Problem Solver",
+    "Open Source Contributor"
+  ],
+  location: "Kohat, Pakistan",
+  email: "shafaqatiqbaal@gmail.com",
+  phone: "0310-9653768",
+  github: "https://github.com/ShafaqatIqbal77",
+  linkedin: "https://www.linkedin.com/in/shafaqat-iqbal-230531359",
+  twitter: "https://twitter.com/shafaqatiqbal",
+  instagram: "https://www.instagram.com/_shafaqat_iqbal_",
+  bio: "Passionate developer with 1 year experience creating digital experiences that are not only visually stunning but also highly functional and user-centric.",
+  bioLong: "I am a dedicated Full Stack Developer with a strong focus on building premium web applications. With expertise in React, Node.js, and modern UI frameworks, I strive to deliver world-class products that stand out. My journey in tech is driven by a constant desire to learn and innovate.",
+  available: true,
+  resume: "/resume.pdf",
+  profileImage: "/src/assets/images/profile.jpg",
+  experience: "1",
+  projects: "7",
+  clients: "5",
+  githubStars: "0",
+};
