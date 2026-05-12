@@ -10,7 +10,7 @@ export const personal = {
     "Open Source Contributor"
   ],
   location: "Kohat, Pakistan",
-  email: "shafaqatiqbaal@gmail.com",
+  email: "shafaqatiqbaaalgmail.com",
   phone: "0310-9653768",
   github: "https://github.com/ShafaqatIqbal77",
   linkedin: "https://www.linkedin.com/in/shafaqat-iqbal-230531359",
