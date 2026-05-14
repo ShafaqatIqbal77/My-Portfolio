@@ -8,7 +8,7 @@ const Experience = () => {
   const [activeTab, setActiveTab] = useState('experience');
 
   return (
-    <section id="experience" className="py-24 bg-[var(--bg-primary)]">
+    <section id="experience" className="py-16 md:py-24 bg-[var(--bg-primary)]">
       <div className="container mx-auto px-6">
         <SectionHeading 
           subtitle="My Journey"
@@ -72,7 +72,7 @@ const Experience = () => {
                   </div>
 
                   {/* Content Card */}
-                  <div className={`w-full md:w-[45%] ml-12 md:ml-0 glass p-8 rounded-3xl border border-[var(--border)] hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group`}>
+                  <div className={`w-full md:w-[45%] ml-10 sm:ml-12 md:ml-0 glass p-6 md:p-8 rounded-3xl border border-[var(--border)] hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group`}>
                     <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
                       <span className="px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
                         {item.duration}

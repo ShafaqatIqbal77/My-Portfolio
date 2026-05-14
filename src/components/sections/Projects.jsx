@@ -18,7 +18,7 @@ const Projects = () => {
     : projects.filter(p => p.category === filter || p.tech.includes(filter));
 
   return (
-    <section id="projects" className="py-24 bg-[var(--bg-secondary)]">
+    <section id="projects" className="py-16 md:py-24 bg-[var(--bg-secondary)]">
       <div className="container mx-auto px-6">
         <SectionHeading 
           subtitle="My Work"
@@ -140,10 +140,10 @@ const Projects = () => {
                 src={selectedProject.image} 
                 onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" }}
                 alt={selectedProject.title}
-                className="rounded-2xl shadow-2xl max-w-full h-auto object-cover max-h-[60vh]"
+                className="rounded-2xl shadow-2xl max-w-full h-auto object-cover max-h-[30vh] md:max-h-[60vh]"
               />
             </div>
-            <div className="flex-1 p-8 lg:p-12 overflow-y-auto">
+            <div className="flex-1 p-6 lg:p-12 overflow-y-auto">
               <div className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
                 {selectedProject.category}
               </div>

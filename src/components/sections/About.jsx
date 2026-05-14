@@ -21,7 +21,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-[var(--bg-secondary)] overflow-hidden">
+    <section id="about" className="py-16 md:py-24 bg-[var(--bg-secondary)] overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
@@ -50,7 +50,7 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="absolute -top-6 -right-6 glass p-4 rounded-2xl shadow-xl z-20 flex flex-col items-center border border-amber-500/30"
+                className="absolute -top-6 -right-2 md:-right-6 glass p-4 rounded-2xl shadow-xl z-20 flex flex-col items-center border border-amber-500/30"
               >
                 <span className="text-3xl font-bold text-amber-500">{personal.experience}</span>
                 <span className="text-[10px] uppercase tracking-tighter font-bold">Years Experience</span>
@@ -61,7 +61,7 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
-                className="absolute -bottom-6 -left-6 glass p-4 rounded-2xl shadow-xl z-20 flex flex-col items-center border border-primary/30"
+                className="absolute -bottom-6 -left-2 md:-left-6 glass p-4 rounded-2xl shadow-xl z-20 flex flex-col items-center border border-primary/30"
               >
                 <span className="text-3xl font-bold text-primary">{personal.projects}</span>
                 <span className="text-[10px] uppercase tracking-tighter font-bold">Projects Done</span>

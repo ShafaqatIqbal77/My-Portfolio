@@ -12,7 +12,7 @@ import 'swiper/css/effect-coverflow';
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-24 bg-[var(--bg-secondary)] overflow-hidden">
+    <section id="testimonials" className="py-16 md:py-24 bg-[var(--bg-secondary)] overflow-hidden">
       <div className="container mx-auto px-6">
         <SectionHeading 
           subtitle="Testimonials"

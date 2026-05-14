@@ -27,7 +27,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
       <ParticlesBg />
       
       {/* Background Glows */}
@@ -67,7 +67,7 @@ const Hero = () => {
 
             <motion.h1 
               variants={itemVariants} 
-              className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-6 relative"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-6 relative"
               whileHover={{ scale: 1.02 }}
             >
               {personal.name.split(" ").map((word, i) => (
@@ -180,7 +180,7 @@ const Hero = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             className="flex-1 relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-64 h-80 md:w-80 md:h-[450px] lg:w-[420px] lg:h-[550px]">
+            <div className="relative w-56 h-72 sm:w-64 sm:h-80 md:w-80 md:h-[450px] lg:w-[420px] lg:h-[550px]">
               {/* Rotating Gradient Border */}
               <div className="absolute inset-0 rounded-[40px] bg-gradient-to-tr from-primary via-secondary to-accent animate-spin-slow opacity-20 blur-xl" />
               

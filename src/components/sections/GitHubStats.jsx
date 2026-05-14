@@ -32,7 +32,7 @@ const GitHubStats = () => {
   ];
 
   return (
-    <section id="github" className="py-24 bg-[var(--bg-primary)]">
+    <section id="github" className="py-16 md:py-24 bg-[var(--bg-primary)]">
       <div className="container mx-auto px-6">
         <SectionHeading 
           subtitle="Activity"
