@@ -20,7 +20,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-[var(--bg-secondary)]">
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-6">
         <SectionHeading 
           subtitle="My Work"
           title="Featured Projects"
@@ -144,11 +144,11 @@ const Projects = () => {
                 src={selectedProject.image} 
                 onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" }}
                 alt={selectedProject.title}
-                className="rounded-xl sm:rounded-2xl shadow-2xl w-full h-auto object-cover max-h-[30vh] md:max-h-[50vh] lg:max-h-[60vh]"
+                className="rounded-2xl shadow-2xl max-w-full h-auto object-cover max-h-[30vh] md:max-h-[60vh]"
               />
             </div>
-            <div className="w-full lg:w-1/2 p-5 sm:p-8 lg:p-12 overflow-y-auto">
-              <div className="inline-block px-3 sm:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-bold mb-3 sm:mb-4">
+            <div className="flex-1 p-6 lg:p-12 overflow-y-auto">
+              <div className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
                 {selectedProject.category}
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">{selectedProject.title}</h2>

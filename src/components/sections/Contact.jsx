@@ -41,8 +41,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-[var(--bg-secondary)] overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col lg:flex-row gap-16">
           
           {/* Left Column - Contact Info */}
           <div className="flex-1">
@@ -107,7 +107,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="flex-1 mt-8 lg:mt-0"
           >
-            <div className="glass p-5 sm:p-8 md:p-12 rounded-3xl sm:rounded-[40px] border border-[var(--border)] relative overflow-hidden">
+            <div className="glass p-6 md:p-12 rounded-[40px] border border-[var(--border)] relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl -z-10" />
               
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 sm:space-y-6">
@@ -116,7 +116,7 @@ const Contact = () => {
                     <label className="text-xs sm:text-sm font-bold text-[var(--text-muted)] uppercase tracking-wider ml-1 sm:ml-2">Full Name</label>
                     <input
                       {...register("name", { required: "Name is required" })}
-                      className={`w-full px-4 py-3 sm:py-3 md:px-6 md:py-4 rounded-xl sm:rounded-2xl bg-[var(--bg-primary)] border border-[var(--border)] focus:border-primary outline-none transition-all text-sm sm:text-base ${errors.name ? 'border-red-500' : ''}`}
+                      className={`w-full px-4 py-3 md:px-6 md:py-4 rounded-2xl bg-[var(--bg-primary)] border border-[var(--border)] focus:border-primary outline-none transition-all ${errors.name ? 'border-red-500' : ''}`}
                       placeholder="Iqbal"
                     />
                     {errors.name && <p className="text-red-500 text-[10px] sm:text-xs ml-1 sm:ml-2">{errors.name.message}</p>}
@@ -128,7 +128,7 @@ const Contact = () => {
                         required: "Email is required",
                         pattern: { value: /^\S+@\S+$/i, message: "Invalid email" }
                       })}
-                      className={`w-full px-4 py-3 sm:py-3 md:px-6 md:py-4 rounded-xl sm:rounded-2xl bg-[var(--bg-primary)] border border-[var(--border)] focus:border-primary outline-none transition-all text-sm sm:text-base ${errors.email ? 'border-red-500' : ''}`}
+                      className={`w-full px-4 py-3 md:px-6 md:py-4 rounded-2xl bg-[var(--bg-primary)] border border-[var(--border)] focus:border-primary outline-none transition-all ${errors.email ? 'border-red-500' : ''}`}
                       placeholder="Iqbal@example.com"
                     />
                     {errors.email && <p className="text-red-500 text-[10px] sm:text-xs ml-1 sm:ml-2">{errors.email.message}</p>}
@@ -140,7 +140,7 @@ const Contact = () => {
                   <textarea
                     {...register("message", { required: "Message is required" })}
                     rows={5}
-                    className={`w-full px-4 py-3 sm:py-3 md:px-6 md:py-4 rounded-xl sm:rounded-2xl bg-[var(--bg-primary)] border border-[var(--border)] focus:border-primary outline-none transition-all resize-none text-sm sm:text-base ${errors.message ? 'border-red-500' : ''}`}
+                    className={`w-full px-4 py-3 md:px-6 md:py-4 rounded-2xl bg-[var(--bg-primary)] border border-[var(--border)] focus:border-primary outline-none transition-all resize-none ${errors.message ? 'border-red-500' : ''}`}
                     placeholder="Tell me about your project..."
                   />
                   {errors.message && <p className="text-red-500 text-[10px] sm:text-xs ml-1 sm:ml-2">{errors.message.message}</p>}

@@ -6,7 +6,7 @@ import SectionHeading from '../ui/SectionHeading';
 const Skills = () => {
   return (
     <section id="skills" className="py-16 md:py-24 bg-[var(--bg-primary)] overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-6">
         <SectionHeading 
           subtitle="My Skills"
           title="Technologies I Work With"
@@ -22,7 +22,7 @@ const Skills = () => {
               <motion.div 
                 animate={{ x: ["0%", "-50%"] }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="flex gap-4 sm:gap-6 md:gap-8 whitespace-nowrap min-w-max py-4 md:py-6"
+                className="flex gap-4 md:gap-8 whitespace-nowrap min-w-full py-6"
               >
                 {[...skills.techIcons, ...skills.techIcons].map((tech, i) => (
                   <motion.div 
@@ -35,7 +35,7 @@ const Skills = () => {
                       rotate: [0, 5, -5, 0],
                       transition: { duration: 0.3 }
                     }}
-                    className="flex flex-col items-center gap-2 sm:gap-3 w-[80px] sm:w-[100px] md:w-[120px] p-3 sm:p-4 md:p-6 glass rounded-xl sm:rounded-2xl border border-[var(--border)] hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group/icon shrink-0"
+                    className="flex flex-col items-center gap-3 min-w-[100px] p-4 md:min-w-[120px] md:p-6 glass rounded-2xl border border-[var(--border)] hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group/icon"
                   >
                     <motion.img 
                       src={tech.icon} 
@@ -60,7 +60,7 @@ const Skills = () => {
               <motion.div 
                 animate={{ x: ["-50%", "0%"] }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="flex gap-4 sm:gap-6 md:gap-8 whitespace-nowrap min-w-max py-4 md:py-6"
+                className="flex gap-4 md:gap-8 whitespace-nowrap min-w-full py-6"
               >
                 {[...skills.techIcons, ...skills.techIcons].slice().reverse().map((tech, i) => (
                   <motion.div 
@@ -73,7 +73,7 @@ const Skills = () => {
                       rotate: [0, -5, 5, 0],
                       transition: { duration: 0.3 }
                     }}
-                    className="flex flex-col items-center gap-2 sm:gap-3 w-[80px] sm:w-[100px] md:w-[120px] p-3 sm:p-4 md:p-6 glass rounded-xl sm:rounded-2xl border border-[var(--border)] hover:border-secondary hover:shadow-lg hover:shadow-secondary/20 transition-all duration-300 group/icon shrink-0"
+                    className="flex flex-col items-center gap-3 min-w-[100px] p-4 md:min-w-[120px] md:p-6 glass rounded-2xl border border-[var(--border)] hover:border-secondary hover:shadow-lg hover:shadow-secondary/20 transition-all duration-300 group/icon"
                   >
                     <motion.img 
                       src={tech.icon} 

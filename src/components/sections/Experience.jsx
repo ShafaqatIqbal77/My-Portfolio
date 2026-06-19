@@ -8,8 +8,8 @@ const Experience = () => {
   const [activeTab, setActiveTab] = useState('experience');
 
   return (
-    <section id="experience" className="py-16 md:py-24 bg-[var(--bg-primary)] overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="experience" className="py-16 md:py-24 bg-[var(--bg-primary)]">
+      <div className="container mx-auto px-6">
         <SectionHeading 
           subtitle="My Journey"
           title="Experience & Education"
@@ -72,9 +72,9 @@ const Experience = () => {
                   </div>
 
                   {/* Content Card */}
-                  <div className={`w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] md:w-[45%] ml-8 sm:ml-12 md:ml-0 glass p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-[var(--border)] hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group`}>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4 mb-4">
-                      <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider w-fit">
+                  <div className={`w-full md:w-[45%] ml-10 sm:ml-12 md:ml-0 glass p-6 md:p-8 rounded-3xl border border-[var(--border)] hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 group`}>
+                    <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                      <span className="px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
                         {item.duration}
                       </span>
                       <div className="flex items-center gap-1.5 text-[var(--text-muted)] text-xs sm:text-sm font-medium">
