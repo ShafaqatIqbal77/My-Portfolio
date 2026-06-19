@@ -1,111 +1,94 @@
-# 🌟 Shafaqat Iqbal — Personal Portfolio
+# 🌟 Personal Portfolio Website
 
-A modern, highly interactive, and fully responsive personal portfolio website built with **React**, **Vite**, and **Tailwind CSS**. Showcases my projects, skills, experience, and GitHub statistics with stunning animations and a premium dark/light mode UI.
+A modern, highly interactive, and fully responsive personal portfolio website built with React, Vite, and Tailwind CSS. This portfolio showcases my projects, skills, experience, and GitHub statistics using stunning animations and a sleek dark/light mode UI.
 
 ## 🚀 Live Demo
 
-[View Live Portfolio](https://shafaqatiqbal77.github.io/My-Portfolio) *(Update this link when deployed)*
+[View Live Portfolio](https://shafaqatiqbal77.github.io/My-Portfolio) *(Note: Update this link when deployed)*
 
 ## ✨ Features
 
-- **🎨 Premium UI:** Glassmorphism, smooth gradients, micro-animations, and a polished design system.
-- **📱 Fully Responsive:** Mobile-first design optimized for all screen sizes (320px+) — phones, tablets, laptops, and desktops.
-- **⚡ Instant Load:** No preloader — the portfolio opens immediately for the best user experience.
-- **🎭 Interactive Elements:** Typing effects, particle backgrounds, hover interactions, and custom cursor.
-- **📂 Dynamic Projects:** Filterable project grid with detail modals, GitHub stats, and live demo links.
-- **📊 GitHub Integration:** Real-time GitHub contribution graphs, streak stats, and repository activity.
-- **🌗 Theme Support:** Beautiful Dark and Light mode with smooth transitions.
-- **📄 Downloadable CV:** One-click resume/CV download.
-- **🔥 Performance Optimized:** Built with Vite for lightning-fast HMR and optimized production builds.
-- **🔒 Safe Area Support:** Proper rendering on notched/modern mobile devices.
+- **Modern & Premium UI:** Glassmorphism, smooth animations, and beautiful gradients.
+- **Fully Responsive:** Optimized for all devices (Mobile, Tablet, Desktop) ensuring a seamless experience.
+- **Interactive Elements:** Typing effects, particle backgrounds, hover interactions, and custom cursors.
+- **Dynamic Content:** Showcases projects with modals, timeline-based experience/education, and animated skill bars.
+- **GitHub Integration:** Displays real-time GitHub statistics, streaks, and contribution graphs.
+- **Theme Support:** Clean Dark and Light mode support.
+- **Performance Optimized:** Built with Vite for lightning-fast Hot Module Replacement (HMR) and optimized production builds.
 
-## 🛠️ Tech Stack
+## 🛠️ Technologies Used
 
-| Category | Technologies |
-|----------|-------------|
-| **Framework** | [React.js](https://reactjs.org/) + [Vite](https://vitejs.dev/) |
-| **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
-| **Animations** | [Framer Motion](https://www.framer.com/motion/) |
-| **Icons** | [Lucide React](https://lucide.dev/) |
-| **Carousel** | [Swiper.js](https://swiperjs.com/) |
-| **Forms** | React Hook Form |
-| **Particles** | tsParticles |
-| **Other** | React Scroll, Canvas Confetti, React Hot Toast |
+- **Frontend Framework:** [React.js](https://reactjs.org/) (via [Vite](https://vitejs.dev/))
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Forms/Email:** React Hook Form, EmailJS
+- **Other Tools:** React Scroll, Canvas Confetti
 
 ## 💻 Getting Started
 
+Follow these simple steps to set up the project locally on your machine.
+
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v16 or higher)
-- npm or yarn
+Ensure you have Node.js installed on your system.
+- [Node.js](https://nodejs.org/en/download/) (v14 or higher recommended)
 
 ### Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/ShafaqatIqbal77/My-Portfolio.git
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ShafaqatIqbal77/My-Portfolio.git
+   ```
 
-# Navigate to the project
-cd My-Portfolio
+2. **Navigate to the project directory:**
+   ```bash
+   cd My-Portfolio
+   ```
 
-# Install dependencies
-npm install
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-# Start the dev server
-npm run dev
-```
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-Open `http://localhost:5173` in your browser.
-
-### Build for Production
-
-```bash
-npm run build
-```
+5. **Open your browser:**
+   Navigate to `http://localhost:5173` to view the application locally.
 
 ## 📂 Project Structure
 
-```
+```text
 My-Portfolio/
-├── public/                   # Static assets (favicon, profile image, resume)
+├── public/                 # Static assets (favicon, etc.)
 ├── src/
-│   ├── assets/               # Images and local media
-│   ├── components/
-│   │   ├── animations/       # Particle background, typing effect
-│   │   ├── layout/           # Navbar, Footer, BackToTop, CustomCursor, etc.
-│   │   ├── sections/         # Hero, About, Skills, Projects, Experience, etc.
-│   │   └── ui/               # Button, Modal, Badge, SectionHeading
-│   ├── context/              # ThemeContext (dark/light mode)
-│   ├── data/                 # Personal info, projects, skills, experience data
-│   ├── App.jsx               # Main app layout
-│   ├── index.css             # Global styles & Tailwind config
-│   └── main.jsx              # Entry point
-├── tailwind.config.js        # Tailwind CSS configuration
-├── vite.config.js            # Vite configuration
-└── package.json              # Dependencies & scripts
+│   ├── assets/             # Images and local media
+│   ├── components/         # Reusable React components
+│   │   ├── animations/     # Framer motion & particle background effects
+│   │   ├── layout/         # Navbar, Footer, Custom Cursor, etc.
+│   │   ├── sections/       # Main page sections (Hero, About, Projects, Contact, etc.)
+│   │   └── ui/             # UI Components (Buttons, Modals, Badges)
+│   ├── context/            # React Context (e.g., ThemeContext)
+│   ├── data/               # Local data files (projects, skills, personal info)
+│   ├── App.jsx             # Main application layout component
+│   ├── index.css           # Global Tailwind CSS and custom styles
+│   └── main.jsx            # Application entry point
+├── package.json            # Project metadata and dependencies
+├── tailwind.config.js      # Tailwind CSS configuration
+└── vite.config.js          # Vite configuration
 ```
 
-## 📸 Sections
+## 📬 Contact & Connect
 
-| Section | Description |
-|---------|-------------|
-| **Hero** | Animated intro with name, typing titles, CTA buttons, social links & profile photo |
-| **About** | Bio, personal info grid, stats cards, and download resume |
-| **Skills** | Scrolling tech icons, animated skill bars, and DevOps cards |
-| **Projects** | Filterable project grid with detail modals |
-| **Experience** | Animated timeline with tabs for work & education |
-| **Testimonials** | Swiper carousel with client feedback |
-| **GitHub Stats** | Live contribution graphs & streak statistics |
-| **Contact** | Contact form, info cards, social links & availability status |
-
-## 📬 Contact
-
-- **Shafaqat Iqbal** — Aspiring DevOps-focused Frontend Developer
-- **Email:** shafaqatiqbal@gmail.com
-- **Phone:** +92 310-9653768
-- **LinkedIn:** [shafaqat-iqbal-230531359](https://www.linkedin.com/in/shafaqat-iqbal-230531359)
+- **Name:** Shafaqat Iqbal
+- **Role:** Full Stack Developer
+- **Email:** shafaqatiqbaal@gmail.com
+- **LinkedIn:** [Shafaqat Iqbal](https://www.linkedin.com/in/shafaqat-iqbal-230531359)
 - **GitHub:** [@ShafaqatIqbal77](https://github.com/ShafaqatIqbal77)
 
 ---
 
-⭐ *If you found this project helpful, please give it a star!*
+⭐️ *If you found this project helpful or inspiring, please consider giving it a star!*
