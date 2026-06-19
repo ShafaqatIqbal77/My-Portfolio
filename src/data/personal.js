@@ -10,7 +10,7 @@ export const personal = {
     "Open Source Contributor"
   ],
   location: "Kohat, Pakistan",
-  email: "shafaqatiqbaaalgmail.com",
+  email: "shafaqatiqbal@gmail.com",
   phone: "0310-9653768",
   github: "https://github.com/ShafaqatIqbal77",
   linkedin: "https://www.linkedin.com/in/shafaqat-iqbal-230531359",
@@ -20,7 +20,7 @@ export const personal = {
   bioLong: "I am a dedicated Full Stack Developer with a strong focus on building premium web applications. With expertise in React, Node.js, and modern UI frameworks, I strive to deliver world-class products that stand out. My journey in tech is driven by a constant desire to learn and innovate.",
   available: true,
   resume: "/resume.pdf",
-  profileImage: "/src/assets/images/profile.jpg",
+  profileImage: "/profile.jpg",
   experience: "1",
   projects: "7",
   clients: "5",

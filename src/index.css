@@ -62,29 +62,40 @@
   }
 
   .btn-primary {
-    @apply relative overflow-hidden px-8 py-4 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20;
+    @apply relative overflow-hidden px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-xl shadow-primary/20;
   }
 
   .btn-outline {
-    @apply px-8 py-4 rounded-2xl border-2 border-primary/20 text-[var(--text-primary)] font-bold hover:bg-primary/5 hover:border-primary/50 transition-all duration-300;
+    @apply px-6 py-3 md:px-8 md:py-4 rounded-xl md:rounded-2xl border-2 border-primary/20 text-[var(--text-primary)] font-bold hover:bg-primary/5 hover:border-primary/50 transition-all duration-300;
   }
 
   .section-padding {
-    @apply py-24 md:py-32;
+    @apply py-16 md:py-32;
   }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+/* Custom Scrollbar - Hidden on mobile */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[var(--bg-primary)];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-primary/40 to-secondary/40 rounded-full hover:from-primary/60 hover:to-secondary/60 transition-all;
+  }
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-[var(--bg-primary)];
+/* Hide scrollbar for clean UI elements but allow scrolling */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-b from-primary/40 to-secondary/40 rounded-full hover:from-primary/60 hover:to-secondary/60 transition-all;
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Modern Decorative Backgrounds */
@@ -110,4 +121,38 @@ input:focus, textarea:focus, select:focus {
 /* Typography refinements */
 .font-heading {
   letter-spacing: -0.02em;
+}
+
+/* Base custom breakpoints for very small screens */
+@media (max-width: 380px) {
+  .xs\:hidden { display: none !important; }
+  .xs\:block { display: block !important; }
+  .xs\:inline { display: inline !important; }
+  .xs\:text-xs { font-size: 0.75rem !important; }
+  .xs\:text-sm { font-size: 0.875rem !important; }
+  .xs\:text-2xl { font-size: 1.5rem !important; }
+  .xs\:text-3xl { font-size: 1.875rem !important; }
+  .xs\:gap-2 { gap: 0.5rem !important; }
+  .xs\:p-3 { padding: 0.75rem !important; }
+  .xs\:px-3 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Prevent horizontal overflow globally */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Ensure images don't overflow */
+img, video, svg {
+  max-width: 100%;
+  height: auto;
 }

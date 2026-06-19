@@ -28,17 +28,29 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'glass py-3' : 'bg-transparent py-5'
+      isScrolled ? 'glass py-3' : 'bg-transparent py-4 md:py-5'
     }`}>
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to="home" smooth={true} className="cursor-pointer flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-primary/30">
+        <Link to="home" smooth={true} className="cursor-pointer flex items-center gap-2 sm:gap-3">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg shadow-primary/30">
             {personal.name.split(" ").map(n => n[0]).join("")}
           </div>
-          <span className="font-heading font-bold text-xl hidden sm:block">
+          <span className="font-heading font-bold text-lg sm:text-xl hidden sm:block">
             {personal.name.split(" ")[0]}<span className="gradient-text">{personal.name.split(" ")[1] || ""}</span>
           </span>
         </Link>
@@ -62,16 +74,17 @@ const Navbar = () => {
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            aria-label="Toggle theme"
           >
             {isDarkMode ? <Sun size={20} className="text-amber-400" /> : <Moon size={20} />}
           </button>
 
           <Button 
-            className="hidden sm:flex" 
+            className="hidden sm:flex text-sm" 
             variant="primary" 
             icon={Rocket}
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
@@ -82,6 +95,7 @@ const Navbar = () => {
           <button
             className="lg:hidden p-2"
             onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Open menu"
           >
             <Menu size={24} />
           </button>
@@ -96,13 +110,14 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[60] bg-[var(--bg-primary)] flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-[60] bg-[var(--bg-primary)] flex flex-col items-center justify-center gap-6 sm:gap-8"
           >
             <button
-              className="absolute top-6 right-6 p-2"
+              className="absolute top-5 right-5 p-2"
               onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
             >
-              <X size={32} />
+              <X size={28} />
             </button>
 
             {navLinks.map((link, i) => (
@@ -119,7 +134,7 @@ const Navbar = () => {
                   offset={-70}
                   duration={500}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-3xl font-bold font-heading hover:text-primary transition-colors"
+                  className="text-2xl sm:text-3xl font-bold font-heading hover:text-primary transition-colors"
                 >
                   {link.name}
                 </Link>

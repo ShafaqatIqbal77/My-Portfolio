@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, Star, GitFork, ArrowRight, Eye, Layout } from 'lucide-react';
 import { projects } from '../../data/projects';
+import { personal } from '../../data/personal';
 import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
@@ -18,8 +19,8 @@ const Projects = () => {
     : projects.filter(p => p.category === filter || p.tech.includes(filter));
 
   return (
-    <section id="projects" className="py-24 bg-[var(--bg-secondary)]">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-16 md:py-24 bg-[var(--bg-secondary)]">
+      <div className="container mx-auto px-4 sm:px-6">
         <SectionHeading 
           subtitle="My Work"
           title="Featured Projects"
@@ -28,26 +29,28 @@ const Projects = () => {
         />
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                filter === cat 
-                  ? 'bg-primary text-white shadow-lg shadow-primary/20' 
-                  : 'bg-[var(--bg-card)] border border-[var(--border)] hover:border-primary/50'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="flex overflow-x-auto pb-4 mb-8 sm:mb-16 hide-scrollbar justify-start sm:justify-center w-full">
+          <div className="flex gap-2 sm:gap-4 px-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`whitespace-nowrap px-4 sm:px-6 py-2 rounded-full font-medium transition-all duration-300 text-sm sm:text-base shrink-0 ${
+                  filter === cat 
+                    ? 'bg-primary text-white shadow-lg shadow-primary/20' 
+                    : 'bg-[var(--bg-card)] border border-[var(--border)] hover:border-primary/50'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Projects Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
@@ -59,10 +62,10 @@ const Projects = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
                 whileHover={{ y: -10 }}
-                className="group glass rounded-3xl overflow-hidden border border-[var(--border)] hover:border-primary/50 transition-all duration-500"
+                className="group glass rounded-3xl overflow-hidden border border-[var(--border)] hover:border-primary/50 transition-all duration-500 flex flex-col h-full"
               >
                 {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden shrink-0">
                   <img 
                     src={project.image} 
                     onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" }}
@@ -72,11 +75,12 @@ const Projects = () => {
                   <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 backdrop-blur-[2px]">
                     <button 
                       onClick={() => setSelectedProject(project)}
-                      className="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-primary flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
+                      aria-label="View Details"
                     >
                       <Eye size={20} />
                     </button>
-                    <a href={project.github} className="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center hover:scale-110 transition-transform shadow-xl">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-primary flex items-center justify-center hover:scale-110 transition-transform shadow-xl">
                       <Github size={20} />
                     </a>
                   </div>
@@ -88,32 +92,32 @@ const Projects = () => {
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <div className="p-5 sm:p-6 flex flex-col flex-grow">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-[var(--text-muted)] text-sm mb-6 line-clamp-2">
+                  <p className="text-[var(--text-muted)] text-xs sm:text-sm mb-4 sm:mb-6 line-clamp-2">
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-4 sm:mb-6 mt-auto">
                     {project.tech.map((t, i) => (
-                      <span key={i} className="text-[10px] uppercase font-bold text-primary/70 bg-primary/5 px-2 py-1 rounded">
+                      <span key={i} className="text-[9px] sm:text-[10px] uppercase font-bold text-primary/70 bg-primary/5 px-2 py-1 rounded">
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between pt-6 border-t border-[var(--border)]">
-                    <div className="flex items-center gap-4 text-xs text-[var(--text-muted)]">
+                  <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-[var(--border)]">
+                    <div className="flex items-center gap-3 sm:gap-4 text-xs text-[var(--text-muted)]">
                       <span className="flex items-center gap-1"><Star size={14} className="text-amber-500" /> {project.stars}</span>
                       <span className="flex items-center gap-1"><GitFork size={14} className="text-blue-500" /> {project.forks}</span>
                     </div>
                     <button 
                       onClick={() => setSelectedProject(project)}
-                      className="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all"
+                      className="text-primary text-xs sm:text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all"
                     >
-                      View Details <ArrowRight size={16} />
+                      View Details <ArrowRight size={14} sm={{size: 16}} />
                     </button>
                   </div>
                 </div>
@@ -123,8 +127,8 @@ const Projects = () => {
         </motion.div>
 
         {/* View More Button */}
-        <div className="mt-16 text-center">
-          <Button variant="outline" icon={Layout}>View All Projects on GitHub</Button>
+        <div className="mt-12 sm:mt-16 text-center">
+          <Button variant="outline" icon={Layout} onClick={() => window.open(personal.github, '_blank')}>View All Projects on GitHub</Button>
         </div>
       </div>
 
@@ -135,40 +139,53 @@ const Projects = () => {
       >
         {selectedProject && (
           <div className="flex flex-col lg:flex-row h-full">
-            <div className="flex-1 bg-black/20 p-8 flex items-center justify-center">
+            <div className="w-full lg:w-1/2 bg-black/20 p-4 sm:p-8 flex items-center justify-center shrink-0">
               <img 
                 src={selectedProject.image} 
                 onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" }}
                 alt={selectedProject.title}
-                className="rounded-2xl shadow-2xl max-w-full h-auto object-cover max-h-[60vh]"
+                className="rounded-xl sm:rounded-2xl shadow-2xl w-full h-auto object-cover max-h-[30vh] md:max-h-[50vh] lg:max-h-[60vh]"
               />
             </div>
-            <div className="flex-1 p-8 lg:p-12 overflow-y-auto">
-              <div className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
+            <div className="w-full lg:w-1/2 p-5 sm:p-8 lg:p-12 overflow-y-auto">
+              <div className="inline-block px-3 sm:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-bold mb-3 sm:mb-4">
                 {selectedProject.category}
               </div>
-              <h2 className="text-4xl font-bold mb-6">{selectedProject.title}</h2>
-              <p className="text-[var(--text-muted)] text-lg mb-8 leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">{selectedProject.title}</h2>
+              <p className="text-[var(--text-muted)] text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed">
                 {selectedProject.description}
               </p>
 
-              <div className="mb-8">
-                <h4 className="font-bold mb-4 flex items-center gap-2 italic">
-                  <div className="w-6 h-1 bg-primary rounded-full"></div>
+              <div className="mb-6 sm:mb-8">
+                <h4 className="font-bold mb-3 sm:mb-4 flex items-center gap-2 italic text-sm sm:text-base">
+                  <div className="w-4 sm:w-6 h-1 bg-primary rounded-full"></div>
                   Technologies Used
                 </h4>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {selectedProject.tech.map((t, i) => (
-                    <span key={i} className="px-4 py-2 rounded-xl bg-[var(--bg-primary)] border border-[var(--border)] font-medium text-sm">
+                    <span key={i} className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-[var(--bg-primary)] border border-[var(--border)] font-medium text-xs sm:text-sm">
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-8 border-t border-[var(--border)]">
-                <Button className="w-full" icon={Github}>Source Code</Button>
-                <Button variant="outline" className="w-full" icon={ExternalLink}>Live Demo</Button>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-6 sm:pt-8 border-t border-[var(--border)] mt-auto">
+                <Button 
+                  className="w-full" 
+                  icon={Github}
+                  onClick={() => window.open(selectedProject.github, '_blank')}
+                >
+                  Source Code
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full" 
+                  icon={ExternalLink}
+                  onClick={() => window.open(selectedProject.demo, '_blank')}
+                >
+                  Live Demo
+                </Button>
               </div>
             </div>
           </div>

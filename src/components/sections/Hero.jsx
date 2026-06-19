@@ -26,16 +26,27 @@ const Hero = () => {
     },
   };
 
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = personal.resume;
+    link.download = 'Shafaqat_Iqbal_Resume.pdf';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <div className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div className="relative min-h-screen flex items-center pt-16 md:pt-20 overflow-hidden">
       <ParticlesBg />
       
-      {/* Background Glows */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-pulse" />
+      {/* Background Glows - hidden on mobile for performance */}
+      <div className="hidden sm:block absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/20 rounded-full blur-[100px] md:blur-[120px] animate-pulse" />
+      <div className="hidden sm:block absolute bottom-1/4 right-1/4 w-64 md:w-96 h-64 md:h-96 bg-accent/20 rounded-full blur-[100px] md:blur-[120px] animate-pulse" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           
           {/* Left Content */}
           <motion.div 
@@ -46,15 +57,15 @@ const Hero = () => {
           >
             <motion.div 
               variants={itemVariants} 
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium mb-6"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium mb-4 sm:mb-6 text-sm sm:text-base"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 0 30px rgba(99, 102, 241, 0.3)"
               }}
             >
-              <span className="relative flex h-3 w-3">
+              <span className="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-primary"></span>
               </span>
               <motion.span 
                 initial={{ opacity: 0 }}
@@ -67,8 +78,7 @@ const Hero = () => {
 
             <motion.h1 
               variants={itemVariants} 
-              className="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-6 relative"
-              whileHover={{ scale: 1.02 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading mb-4 sm:mb-6 relative leading-tight"
             >
               {personal.name.split(" ").map((word, i) => (
                 <motion.span 
@@ -77,52 +87,43 @@ const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 + 0.3 }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    textShadow: "0 0 20px rgba(99, 102, 241, 0.5)"
-                  }}
                 >
-                  {word} 
+                  {word}{" "}
                 </motion.span>
               ))}
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="text-2xl md:text-3xl font-heading font-medium mb-8 flex items-center justify-center lg:justify-start gap-3">
+            <motion.div variants={itemVariants} className="text-xl sm:text-2xl md:text-3xl font-heading font-medium mb-6 sm:mb-8 flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3">
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
-                I am a 
+                I am a{" "}
               </motion.span>
               <TypingEffect strings={personal.titles} />
             </motion.div>
 
             <motion.p 
               variants={itemVariants} 
-              className="text-lg md:text-xl text-[var(--text-muted)] max-w-2xl mb-10 leading-relaxed relative"
-              whileHover={{ scale: 1.01 }}
+              className="text-base sm:text-lg md:text-xl text-[var(--text-muted)] max-w-2xl mx-auto lg:mx-0 mb-8 sm:mb-10 leading-relaxed"
             >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.7 }}
-              >
-                {personal.bio}
-              </motion.span>
+              {personal.bio}
             </motion.p>
 
             <motion.div 
               variants={itemVariants} 
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10"
+              className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-full sm:w-auto"
               >
                 <Button 
                   variant="primary" 
                   icon={ArrowRight}
+                  className="w-full sm:w-auto"
                   onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
                 >
                   View My Work
@@ -131,8 +132,14 @@ const Hero = () => {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                className="w-full sm:w-auto"
               >
-                <Button variant="outline" icon={Download}>
+                <Button 
+                  variant="outline" 
+                  icon={Download}
+                  className="w-full sm:w-auto"
+                  onClick={handleDownloadCV}
+                >
                   Download CV
                 </Button>
               </motion.div>
@@ -140,7 +147,7 @@ const Hero = () => {
 
             <motion.div 
               variants={itemVariants} 
-              className="flex items-center justify-center lg:justify-start gap-6"
+              className="flex items-center justify-center lg:justify-start gap-4 sm:gap-6"
             >
               {[
                 { icon: Github, href: personal.github },
@@ -164,7 +171,7 @@ const Hero = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 border border-[var(--border)] rounded-full hover:border-primary transition-all duration-300 text-[var(--text-muted)] hover:text-primary hover:shadow-lg hover:shadow-primary/20"
+                    className="p-2.5 sm:p-2 border border-[var(--border)] rounded-full hover:border-primary transition-all duration-300 text-[var(--text-muted)] hover:text-primary hover:shadow-lg hover:shadow-primary/20 inline-flex"
                   >
                     <social.icon size={20} />
                   </motion.a>
@@ -173,19 +180,19 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Avatar/3D */}
+          {/* Right Side - Avatar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
             className="flex-1 relative flex justify-center lg:justify-end"
           >
-            <div className="relative w-64 h-80 md:w-80 md:h-[450px] lg:w-[420px] lg:h-[550px]">
+            <div className="relative w-52 h-64 sm:w-64 sm:h-80 md:w-80 md:h-[420px] lg:w-[380px] lg:h-[500px] xl:w-[420px] xl:h-[550px]">
               {/* Rotating Gradient Border */}
-              <div className="absolute inset-0 rounded-[40px] bg-gradient-to-tr from-primary via-secondary to-accent animate-spin-slow opacity-20 blur-xl" />
+              <div className="absolute inset-0 rounded-[30px] sm:rounded-[40px] bg-gradient-to-tr from-primary via-secondary to-accent animate-spin-slow opacity-20 blur-xl" />
               
               {/* Photo Container */}
-              <div className="absolute inset-4 rounded-[30px] overflow-hidden border-2 border-primary/20 backdrop-blur-sm z-10 group">
+              <div className="absolute inset-3 sm:inset-4 rounded-[24px] sm:rounded-[30px] overflow-hidden border-2 border-primary/20 backdrop-blur-sm z-10 group">
                 <img 
                   src={personal.profileImage} 
                   onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" }}
@@ -194,18 +201,17 @@ const Hero = () => {
                 />
                 <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-all duration-700" />
               </div>
-
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - hidden on very small screens */}
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
           onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group"
+          className="hidden sm:flex absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 cursor-pointer group"
         >
           <motion.div 
             animate={{ y: [0, 10, 0] }}

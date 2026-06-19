@@ -23,7 +23,7 @@ import Contact from './components/sections/Contact';
 function App() {
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-[var(--bg-primary)]">
+      <div id="home" className="relative min-h-screen bg-[var(--bg-primary)]">
         <div className="mesh-gradient opacity-[0.15] dark:opacity-[0.3]" />
         
         <CustomCursor />

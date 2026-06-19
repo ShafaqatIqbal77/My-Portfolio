@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { personal } from '../../data/personal';
 import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
-import { Coffee, Code, Bug, User, MapPin, Mail, GraduationCap } from 'lucide-react';
+import { Coffee, Code, Bug, User, MapPin, Mail, GraduationCap, Download } from 'lucide-react';
 
 const About = () => {
   const stats = [
@@ -20,21 +20,28 @@ const About = () => {
     { label: "Education", value: "BS Computer Science", icon: GraduationCap },
   ];
 
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = personal.resume;
+    link.download = 'Shafaqat_Iqbal_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <section id="about" className="py-24 bg-[var(--bg-secondary)] overflow-hidden">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          
-          {/* Left Column - Image & Badges */}
+    <section id="about" className="py-16 md:py-24 bg-[var(--bg-secondary)] overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-10 md:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex-1 relative"
+            className="flex-1 relative w-full"
           >
-            <div className="relative w-full max-w-md mx-auto">
-              {/* Main Image */}
+            <div className="relative w-full max-w-sm sm:max-w-md mx-auto">
               <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 z-10">
                 <img 
                   src={personal.profileImage} 
@@ -43,44 +50,37 @@ const About = () => {
                   className="w-full h-auto object-contain"
                 />
               </div>
-
-              {/* Badges */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.5, x: 20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="absolute -top-6 -right-6 glass p-4 rounded-2xl shadow-xl z-20 flex flex-col items-center border border-amber-500/30"
+                className="absolute -top-4 -right-1 sm:-top-6 sm:-right-6 glass p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-xl z-20 flex flex-col items-center border border-amber-500/30"
               >
-                <span className="text-3xl font-bold text-amber-500">{personal.experience}</span>
-                <span className="text-[10px] uppercase tracking-tighter font-bold">Years Experience</span>
+                <span className="text-2xl sm:text-3xl font-bold text-amber-500">{personal.experience}</span>
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-tighter font-bold">Years Experience</span>
               </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, scale: 0.5, x: -20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
-                className="absolute -bottom-6 -left-6 glass p-4 rounded-2xl shadow-xl z-20 flex flex-col items-center border border-primary/30"
+                className="absolute -bottom-4 -left-1 sm:-bottom-6 sm:-left-6 glass p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-xl z-20 flex flex-col items-center border border-primary/30"
               >
-                <span className="text-3xl font-bold text-primary">{personal.projects}</span>
-                <span className="text-[10px] uppercase tracking-tighter font-bold">Projects Done</span>
+                <span className="text-2xl sm:text-3xl font-bold text-primary">{personal.projects}</span>
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-tighter font-bold">Projects Done</span>
               </motion.div>
-
-              {/* Decorative Elements */}
               <div className="absolute inset-0 bg-primary/5 -translate-x-4 -translate-y-4 rounded-2xl -z-10" />
             </div>
           </motion.div>
 
-          {/* Right Column - Content */}
-          <div className="flex-[1.5]">
+          <div className="flex-[1.5] mt-6 lg:mt-0">
             <SectionHeading 
               subtitle="About Me"
               title="Passionate Developer Creating Digital Experiences"
               description={personal.bioLong}
             />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">
               {infoGrid.map((item, i) => (
                 <motion.div 
                   key={i}
@@ -88,35 +88,28 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="flex items-center gap-4 glass p-4 rounded-xl border border-[var(--border)]"
+                  className="flex items-center gap-3 sm:gap-4 glass p-3 sm:p-4 rounded-xl border border-[var(--border)]"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-                    <item.icon size={20} />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <item.icon size={18} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-xs text-[var(--text-muted)] uppercase tracking-wider">{item.label}</p>
-                    <p className="font-medium text-sm md:text-base">{item.value}</p>
+                    <p className="font-medium text-sm md:text-base truncate">{item.value}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
-
-            <div className="flex flex-wrap gap-4 mb-12">
-              <Button variant="primary">Download Resume</Button>
-              <Button variant="outline" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>Hire Me</Button>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-12">
+              <Button variant="primary" icon={Download} onClick={handleDownloadResume} className="w-full sm:w-auto">Download Resume</Button>
+              <Button variant="outline" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto">Hire Me</Button>
             </div>
-
-            {/* Stats Strip */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
               {stats.map((stat, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ y: -5 }}
-                  className="text-center p-4 rounded-xl glass border border-[var(--border)]"
-                >
-                  <stat.icon className={`mx-auto mb-2 ${stat.color}`} size={24} />
-                  <h4 className="text-2xl font-bold">{stat.value}</h4>
-                  <p className="text-xs text-[var(--text-muted)] uppercase">{stat.label}</p>
+                <motion.div key={i} whileHover={{ y: -5 }} className="text-center p-3 sm:p-4 rounded-xl glass border border-[var(--border)]">
+                  <stat.icon className={`mx-auto mb-2 ${stat.color}`} size={22} />
+                  <h4 className="text-xl sm:text-2xl font-bold">{stat.value}</h4>
+                  <p className="text-[10px] sm:text-xs text-[var(--text-muted)] uppercase">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
