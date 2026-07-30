@@ -85,7 +85,7 @@ My-Portfolio/
 
 - **Name:** Shafaqat Iqbal
 - **Role:** Full Stack Developer
-- **Email:** shafaqatiqbaal@gmail.com
+- **Email:** shafaqatiqbaaal@gmail.com
 - **LinkedIn:** [Shafaqat Iqbal](https://www.linkedin.com/in/shafaqat-iqbal-230531359)
 - **GitHub:** [@ShafaqatIqbal77](https://github.com/ShafaqatIqbal77)
 
