@@ -5,12 +5,11 @@ export const personal = {
     "Full Stack Developer",
     "Devops Engineer",
     "React.js Expert",
-    "UI/UX Designer",
     "Problem Solver",
     "Open Source Contributor"
   ],
   location: "Kohat, Pakistan",
-  email: "shafaqatiqbal@gmail.com",
+  email: "shafaqatiqbaaal@gmail.com",
   phone: "0310-9653768",
   github: "https://github.com/ShafaqatIqbal77",
   linkedin: "https://www.linkedin.com/in/shafaqat-iqbal-230531359",
