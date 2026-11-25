@@ -1,12 +1,12 @@
 export const personal = {
   name: "Shafaqat Iqbal",
-  title: "Full Stack Developer",
+  title: "Associate DevOps Engineer",
   titles: [
-    "Full Stack Developer",
-    "Devops Engineer",
-    "React.js Expert",
-    "Problem Solver",
-    "Open Source Contributor"
+    "Associate DevOps Engineer",
+    "AWS Cloud Engineer",
+    "Linux & Docker Enthusiast",
+    "CI/CD Automation Engineer",
+    "Cloud Infrastructure Builder"
   ],
   location: "Kohat, Pakistan",
   email: "shafaqatiqbaaal@gmail.com",
@@ -15,13 +15,13 @@ export const personal = {
   linkedin: "https://www.linkedin.com/in/shafaqat-iqbal-230531359",
   twitter: "https://twitter.com/shafaqatiqbal",
   instagram: "https://www.instagram.com/_shafaqat_iqbal_",
-  bio: "Passionate developer with 1 year experience creating digital experiences that are not only visually stunning but also highly functional and user-centric.",
-  bioLong: "I am a dedicated Full Stack Developer with a strong focus on building premium web applications. With expertise in React, Node.js, and modern UI frameworks, I strive to deliver world-class products that stand out. My journey in tech is driven by a constant desire to learn and innovate.",
+  bio: "Associate DevOps Engineer focused on cloud infrastructure, automation, and deployment — provisioning AWS environments, containerizing workloads with Docker, and building CI/CD pipelines that ship reliable, secure systems.",
+  bioLong: "I am an Associate DevOps Engineer passionate about cloud infrastructure, automation, and deployment. My work spans AWS cloud services, Linux server administration, Docker containerization, and CI/CD pipelines. I enjoy solving real infrastructure problems — from debugging PHP-FPM and Nginx configurations on EC2 to hardening security groups and automating deployments. My goal is to build scalable, secure, and maintainable systems.",
   available: true,
   resume: "/resume.pdf",
   profileImage: "/profile.jpg",
   experience: "1",
-  projects: "7",
+  projects: "3",
   clients: "5",
   githubStars: "0",
 };

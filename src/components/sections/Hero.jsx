@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, Instagram, ArrowRight, Download, MousePointer2 } from 'lucide-react';
 import ParticlesBg from '../animations/ParticlesBg';
-import TypingEffect from '../animations/TypingEffect';
 import { personal } from '../../data/personal';
 import Button from '../ui/Button';
 
@@ -72,37 +71,32 @@ const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                👋 Hello World! I'm
+                👋 Hello! I'm {personal.name}
               </motion.span>
             </motion.div>
 
             <motion.h1 
               variants={itemVariants} 
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-6 relative"
-              whileHover={{ scale: 1.02 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-heading mb-4 sm:mb-6 relative gradient-text"
             >
-              {personal.name.split(" ").map((word, i) => (
-                <motion.span 
-                  key={i} 
-                  className={i === 1 ? "gradient-text" : ""}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 + 0.3 }}
-                >
-                  {word}{" "}
-                </motion.span>
-              ))}
+              Associate DevOps Engineer
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="text-xl sm:text-2xl md:text-3xl font-heading font-medium mb-6 sm:mb-8 flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3">
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-              >
-                I am a{" "}
-              </motion.span>
-              <TypingEffect strings={personal.titles} />
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 mb-6 sm:mb-8"
+            >
+              {["AWS Cloud", "Linux", "Docker", "CI/CD"].map((tag, i) => (
+                <motion.span
+                  key={tag}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55 + i * 0.1 }}
+                  className="px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs sm:text-sm font-bold tracking-wider uppercase"
+                >
+                  {tag}
+                </motion.span>
+              ))}
             </motion.div>
 
             <motion.p 

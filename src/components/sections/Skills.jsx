@@ -96,113 +96,28 @@ const Skills = () => {
         </div>
 
         {/* PART B - Skill Bars */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 mb-16 md:mb-20">
-          {/* Frontend Skills */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2">
-              <span className="w-6 sm:w-8 h-1 bg-primary rounded-full"></span>
-              Frontend Development
-            </h3>
-            <div className="space-y-6 sm:space-y-8">
-              {skills.frontend.map((skill, i) => (
-                <div key={i}>
-                  <div className="flex justify-between mb-2 text-sm sm:text-base">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-[var(--text-muted)]">{skill.level}%</span>
-                  </div>
-                  <div className="h-2 bg-[var(--bg-card)] rounded-full overflow-hidden border border-[var(--border)]">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 }}
-                      className="h-full bg-gradient-to-r from-primary to-accent"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Backend Skills */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2">
-              <span className="w-6 sm:w-8 h-1 bg-secondary rounded-full"></span>
-              Backend & Cloud
-            </h3>
-            <div className="space-y-6 sm:space-y-8">
-              {skills.backend.map((skill, i) => (
-                <div key={i}>
-                  <div className="flex justify-between mb-2 text-sm sm:text-base">
-                    <span className="font-medium">{skill.name}</span>
-                    <span className="text-[var(--text-muted)]">{skill.level}%</span>
-                  </div>
-                  <div className="h-2 bg-[var(--bg-card)] rounded-full overflow-hidden border border-[var(--border)]">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 }}
-                      className="h-full bg-gradient-to-r from-secondary to-accent"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* DevOps Skills */}
-        <div className="mb-16 md:mb-20">
+        <div className="max-w-2xl mx-auto mb-16 md:mb-20">
           <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2">
-            <span className="w-6 sm:w-8 h-1 bg-accent rounded-full"></span>
-            DevOps & Infrastructure
+            <span className="w-6 sm:w-8 h-1 bg-primary rounded-full"></span>
+            Frontend Development
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            {skills.devops.map((skill, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-4 md:p-6 glass rounded-2xl border border-[var(--border)] hover:border-primary transition-all group"
-              >
-                <div className="flex justify-between mb-4">
-                  <span className="font-bold text-base sm:text-lg">{skill.name}</span>
-                  <span className="text-primary font-bold">{skill.level}%</span>
+          <div className="space-y-6 sm:space-y-8">
+            {skills.frontend.map((skill, i) => (
+              <div key={i}>
+                <div className="flex justify-between mb-2 text-sm sm:text-base">
+                  <span className="font-medium">{skill.name}</span>
+                  <span className="text-[var(--text-muted)]">{skill.level}%</span>
                 </div>
-                <div className="h-1.5 bg-[var(--bg-card)] rounded-full overflow-hidden">
+                <div className="h-2 bg-[var(--bg-card)] rounded-full overflow-hidden border border-[var(--border)]">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 + 0.5 }}
+                    transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 }}
                     className="h-full bg-gradient-to-r from-primary to-accent"
                   />
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* PART C - Tools */}
-        <div className="text-center">
-          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-10 italic">Tools I Use Daily</h3>
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
-            {skills.tools.map((tool, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ y: -5 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="p-3 sm:p-4 glass rounded-xl border border-[var(--border)] flex items-center gap-2 sm:gap-3 hover:border-primary transition-all duration-300"
-              >
-                <img src={tool.icon} alt={tool.name} className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span className="font-medium text-sm sm:text-base">{tool.name}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

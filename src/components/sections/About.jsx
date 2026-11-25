@@ -7,10 +7,10 @@ import { Coffee, Code, Bug, User, MapPin, Mail, GraduationCap, Download } from '
 
 const About = () => {
   const stats = [
-    { label: "Projects Completed", value: personal.projects, icon: Code, color: "text-blue-500" },
-    { label: "Happy Clients", value: personal.clients, icon: User, color: "text-purple-500" },
+    { label: "DevOps Projects", value: personal.projects, icon: Code, color: "text-blue-500" },
+    { label: "Cloud Platform", value: "AWS", icon: User, color: "text-purple-500" },
     { label: "Years Experience", value: personal.experience, icon: Coffee, color: "text-amber-500" },
-    { label: "Bugs Fixed", value: "999+", icon: Bug, color: "text-red-500" },
+    { label: "Focus", value: "CI/CD", icon: Bug, color: "text-red-500" },
   ];
 
   const infoGrid = [
@@ -79,7 +79,7 @@ const About = () => {
           <div className="flex-[1.5] mt-6 lg:mt-0">
             <SectionHeading 
               subtitle="About Me"
-              title="Passionate Developer Creating Digital Experiences"
+              title="Building Reliable Cloud Infrastructure & Automation"
               description={personal.bioLong}
             />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-10">

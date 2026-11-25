@@ -7,12 +7,13 @@ import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 import Modal from '../ui/Modal';
+import ProjectCaseStudy from '../projects/ProjectCaseStudy';
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'Frontend', 'Full Stack', 'React', 'Node.js'];
+  const categories = ['All', 'DevOps', 'Cloud & AWS'];
 
   const filteredProjects = filter === 'All' 
     ? projects 
@@ -24,7 +25,7 @@ const Projects = () => {
         <SectionHeading 
           subtitle="My Work"
           title="Featured Projects"
-          description="A showcase of some of my best work, ranging from complex full-stack applications to beautiful frontend designs."
+          description="A showcase of my cloud infrastructure, DevOps, and AWS engineering work — from EC2 deployments to CI/CD automation."
           center
         />
 
@@ -62,7 +63,9 @@ const Projects = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
                 whileHover={{ y: -10 }}
-                className="group glass rounded-3xl overflow-hidden border border-[var(--border)] hover:border-primary/50 transition-all duration-500 flex flex-col h-full"
+                className={`group glass rounded-3xl overflow-hidden border transition-all duration-500 flex flex-col h-full ${
+                  project.featured ? 'border-primary/50 hover:border-primary' : 'border-[var(--border)] hover:border-primary/50'
+                }`}
               >
                 {/* Project Image */}
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden shrink-0">
@@ -84,10 +87,15 @@ const Projects = () => {
                       <Github size={20} />
                     </a>
                   </div>
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 flex flex-col items-start gap-2">
                     <Badge className="bg-black/50 text-white border-none backdrop-blur-md">
                       {project.category}
                     </Badge>
+                    {project.status && (
+                      <Badge className="bg-amber-500/90 text-black border-none backdrop-blur-md">
+                        {project.status}
+                      </Badge>
+                    )}
                   </div>
                 </div>
 
@@ -109,10 +117,16 @@ const Projects = () => {
                   </div>
 
                   <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-[var(--border)]">
-                    <div className="flex items-center gap-3 sm:gap-4 text-xs text-[var(--text-muted)]">
-                      <span className="flex items-center gap-1"><Star size={14} className="text-amber-500" /> {project.stars}</span>
-                      <span className="flex items-center gap-1"><GitFork size={14} className="text-blue-500" /> {project.forks}</span>
-                    </div>
+                    {(project.stars != null || project.forks != null) && (
+                      <div className="flex items-center gap-3 sm:gap-4 text-xs text-[var(--text-muted)]">
+                        {project.stars != null && (
+                          <span className="flex items-center gap-1"><Star size={14} className="text-amber-500" /> {project.stars}</span>
+                        )}
+                        {project.forks != null && (
+                          <span className="flex items-center gap-1"><GitFork size={14} className="text-blue-500" /> {project.forks}</span>
+                        )}
+                      </div>
+                    )}
                     <button 
                       onClick={() => setSelectedProject(project)}
                       className="text-primary text-xs sm:text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all"
@@ -137,7 +151,9 @@ const Projects = () => {
         isOpen={!!selectedProject} 
         onClose={() => setSelectedProject(null)}
       >
-        {selectedProject && (
+        {selectedProject && selectedProject.caseStudy ? (
+          <ProjectCaseStudy project={selectedProject} />
+        ) : selectedProject && (
           <div className="flex flex-col lg:flex-row h-full">
             <div className="w-full lg:w-1/2 bg-black/20 p-4 sm:p-8 flex items-center justify-center shrink-0">
               <img 
@@ -178,14 +194,16 @@ const Projects = () => {
                 >
                   Source Code
                 </Button>
-                <Button 
-                  variant="outline" 
-                  className="w-full" 
-                  icon={ExternalLink}
-                  onClick={() => window.open(selectedProject.demo, '_blank')}
-                >
-                  Live Demo
-                </Button>
+                {selectedProject.demo && selectedProject.demo !== '#' && (
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    icon={ExternalLink}
+                    onClick={() => window.open(selectedProject.demo, '_blank')}
+                  >
+                    Live Demo
+                  </Button>
+                )}
               </div>
             </div>
           </div>
