@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { skills } from '../../data/skills';
 import SectionHeading from '../ui/SectionHeading';
@@ -95,6 +94,7 @@ const Skills = () => {
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* PART B - Skill Bars */}
         <div className="max-w-2xl mx-auto mb-16 md:mb-20">
           <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2">
@@ -118,6 +118,143 @@ const Skills = () => {
                   />
                 </div>
               </div>
+=======
+        {/* PART B - MERN & Application Skills */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 mb-16 md:mb-20">
+          {/* Frontend Skills */}
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2">
+              <span className="w-6 sm:w-8 h-1 bg-primary rounded-full"></span>
+              Frontend Development
+            </h3>
+            <div className="space-y-6 sm:space-y-8">
+              {skills.frontend.map((skill, i) => (
+                <div key={i}>
+                  <div className="flex justify-between mb-2 text-sm sm:text-base">
+                    <span className="font-medium">{skill.name}</span>
+                    <span className="text-[var(--text-muted)]">{skill.level}%</span>
+                  </div>
+                  <div className="h-2 bg-[var(--bg-card)] rounded-full overflow-hidden border border-[var(--border)]">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 }}
+                      className="h-full bg-gradient-to-r from-primary to-accent"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Backend Skills */}
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2">
+              <span className="w-6 sm:w-8 h-1 bg-secondary rounded-full"></span>
+              Backend Development
+            </h3>
+            <div className="space-y-6 sm:space-y-8">
+              {skills.backend.map((skill, i) => (
+                <div key={i}>
+                  <div className="flex justify-between mb-2 text-sm sm:text-base">
+                    <span className="font-medium">{skill.name}</span>
+                    <span className="text-[var(--text-muted)]">{skill.level}%</span>
+                  </div>
+                  <div className="h-2 bg-[var(--bg-card)] rounded-full overflow-hidden border border-[var(--border)]">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 }}
+                      className="h-full bg-gradient-to-r from-secondary to-accent"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* DevOps & Cloud Infrastructure (Proficiency Labels) */}
+        <div className="mb-16 md:mb-20 space-y-10">
+          <div>
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-6 sm:mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
+                <span className="w-6 sm:w-8 h-1 bg-accent rounded-full"></span>
+                DevOps &amp; Cloud Infrastructure
+              </h3>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                Working Knowledge
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {skills.devops.workingKnowledge.map((skill, i) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.04 }}
+                  className="p-4 glass rounded-2xl border border-[var(--border)] hover:border-primary/60 transition-all flex items-center justify-between gap-3"
+                >
+                  <span className="font-semibold text-sm sm:text-base">{skill.name}</span>
+                  <span className="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-500 border border-emerald-500/25">
+                    {skill.proficiency}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+              <h4 className="text-lg sm:text-xl font-bold flex items-center gap-2">
+                <span className="w-5 h-1 bg-secondary rounded-full"></span>
+                Currently Learning
+              </h4>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-secondary/10 text-secondary border border-secondary/25">
+                Learning Roadmap
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {skills.devops.learning.map((skill, i) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="p-4 glass rounded-2xl border border-[var(--border)] hover:border-secondary/60 transition-all flex items-center justify-between gap-3"
+                >
+                  <span className="font-semibold text-sm sm:text-base">{skill.name}</span>
+                  <span className="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-secondary/10 text-secondary border border-secondary/25">
+                    {skill.proficiency}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* PART C - Tools */}
+        <div className="text-center">
+          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-10 italic">Tools I Use Daily</h3>
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+            {skills.tools.map((tool, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ y: -5 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="p-3 sm:p-4 glass rounded-xl border border-[var(--border)] flex items-center gap-2 sm:gap-3 hover:border-primary transition-all duration-300"
+              >
+                <img src={tool.icon} alt={tool.name} className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span className="font-medium text-sm sm:text-base">{tool.name}</span>
+              </motion.div>
+>>>>>>> 0bac050 (change location just)
             ))}
           </div>
         </div>
