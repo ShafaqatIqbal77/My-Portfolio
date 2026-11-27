@@ -8,7 +8,7 @@ export const personal = {
     "CI/CD Automation Engineer",
     "Cloud Infrastructure Builder"
   ],
-  location: "Kohat, Pakistan",
+  location: "Islamabad, Pakistan",
   email: "shafaqatiqbaaal@gmail.com",
   phone: "0310-9653768",
   github: "https://github.com/ShafaqatIqbal77",
