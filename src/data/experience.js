@@ -1,16 +1,16 @@
 export const experience = [
   {
     id: 1,
-    title: "DevOps Engineer (Freelance)",
-    company: "JusticeRollOn",
-    location: "Remote",
-    duration: "2026",
+    title: "DevOps Trainee",
+    company: "PSEB Bootcamp",
+    location: "On-site / Pakistan",
+    duration: "16 November 2026 – 30 January 2027",
     description: [
-      "Containerized an application using Docker for consistent and portable deployment across environments.",
-      "Deployed the application on AWS EC2 and configured Nginx as a reverse proxy with SSL/HTTPS for secure client connections.",
-      "Built an end-to-end CI/CD pipeline using GitHub Actions that automatically builds a Docker image and pushes it to Docker Hub on every push."
+      "Learning Linux administration, shell scripting, and server management.",
+      "Practicing AWS (EC2, VPC, ALB, security groups) through hands-on labs.",
+      "Working with Docker, Nginx, and CI/CD pipelines using GitHub Actions."
     ],
-    tech: ["AWS EC2", "Docker", "Nginx", "GitHub Actions", "CI/CD"]
+    tech: ["LINUX", "AWS", "DOCKER", "NGINX", "CI/CD"]
   }
 ];
 

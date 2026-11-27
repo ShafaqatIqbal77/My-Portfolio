@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram, Loader2 } from 'lucide-react';
@@ -12,7 +12,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async () => {
     setIsSubmitting(true);
     try {
       // Simulating API call for now since no EmailJS credentials are provided
@@ -26,7 +26,7 @@ const Contact = () => {
         colors: ['#6366f1', '#a855f7', '#ec4899']
       });
       reset();
-    } catch (error) {
+    } catch {
       toast.error('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);

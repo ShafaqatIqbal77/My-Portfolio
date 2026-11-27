@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Twitter, Instagram, ArrowRight, Download, MousePointer2 } from 'lucide-react';
+import { Github, Linkedin, Twitter, Instagram, ArrowRight, Download } from 'lucide-react';
 import ParticlesBg from '../animations/ParticlesBg';
 import { personal } from '../../data/personal';
 import Button from '../ui/Button';

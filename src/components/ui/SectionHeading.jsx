@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const SectionHeading = ({ subtitle, title, description, center = false }) => {

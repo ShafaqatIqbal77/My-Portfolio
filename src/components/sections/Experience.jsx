@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Briefcase, GraduationCap, MapPin, CheckCircle2 } from 'lucide-react';
 import { experience, education } from '../../data/experience';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-scroll';
 import { Github, Linkedin, Twitter, Instagram, Heart } from 'lucide-react';
 import { personal } from '../../data/personal';
