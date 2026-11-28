@@ -20,22 +20,14 @@ import SectionHeading from '../ui/SectionHeading';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 import Modal from '../ui/Modal';
-<<<<<<< HEAD
-import ProjectCaseStudy from '../projects/ProjectCaseStudy';
-=======
 import CaseStudyModalContent from '../projects/CaseStudyModalContent';
 import { isPlaceholderUrl, handleProjectLinkClick } from '../../utils/projectLinks';
->>>>>>> 0bac050 (change location just)
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-<<<<<<< HEAD
-  const categories = ['All', 'DevOps', 'Cloud & AWS'];
-=======
   const categories = ['All', 'DevOps', 'Full Stack', 'Frontend', 'React', 'Node.js'];
->>>>>>> 0bac050 (change location just)
 
   const filteredProjects =
     filter === 'All'
@@ -48,11 +40,7 @@ const Projects = () => {
         <SectionHeading
           subtitle="My Work"
           title="Featured Projects"
-<<<<<<< HEAD
-          description="A showcase of my cloud infrastructure, DevOps, and AWS engineering work — from EC2 deployments to CI/CD automation."
-=======
           description="A showcase of my cloud/DevOps deployments and full-stack web applications."
->>>>>>> 0bac050 (change location just)
           center
         />
 
@@ -82,57 +70,10 @@ const Projects = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           <AnimatePresence mode="popLayout">
-<<<<<<< HEAD
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                whileHover={{ y: -10 }}
-                className={`group glass rounded-3xl overflow-hidden border transition-all duration-500 flex flex-col h-full ${
-                  project.featured ? 'border-primary/50 hover:border-primary' : 'border-[var(--border)] hover:border-primary/50'
-                }`}
-              >
-                {/* Project Image */}
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden shrink-0">
-                  <img 
-                    src={project.image} 
-                    onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" }}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 backdrop-blur-[2px]">
-                    <button 
-                      onClick={() => setSelectedProject(project)}
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-primary flex items-center justify-center hover:scale-110 transition-transform shadow-xl"
-                      aria-label="View Details"
-                    >
-                      <Eye size={20} />
-                    </button>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white text-primary flex items-center justify-center hover:scale-110 transition-transform shadow-xl">
-                      <Github size={20} />
-                    </a>
-                  </div>
-                  <div className="absolute top-4 left-4 flex flex-col items-start gap-2">
-                    <Badge className="bg-black/50 text-white border-none backdrop-blur-md">
-                      {project.category}
-                    </Badge>
-                    {project.status && (
-                      <Badge className="bg-amber-500/90 text-black border-none backdrop-blur-md">
-                        {project.status}
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-=======
             {filteredProjects.map((project) => {
               const hasMetrics =
                 typeof project.stars === 'number' && typeof project.forks === 'number';
               const isDevOps = project.category === 'DevOps';
->>>>>>> 0bac050 (change location just)
 
               return (
                 <motion.div
@@ -188,25 +129,6 @@ const Projects = () => {
                       </div>
                     )}
 
-<<<<<<< HEAD
-                  <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-[var(--border)]">
-                    {(project.stars != null || project.forks != null) && (
-                      <div className="flex items-center gap-3 sm:gap-4 text-xs text-[var(--text-muted)]">
-                        {project.stars != null && (
-                          <span className="flex items-center gap-1"><Star size={14} className="text-amber-500" /> {project.stars}</span>
-                        )}
-                        {project.forks != null && (
-                          <span className="flex items-center gap-1"><GitFork size={14} className="text-blue-500" /> {project.forks}</span>
-                        )}
-                      </div>
-                    )}
-                    <button 
-                      onClick={() => setSelectedProject(project)}
-                      className="text-primary text-xs sm:text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all"
-                    >
-                      View Details <ArrowRight size={14} sm={{size: 16}} />
-                    </button>
-=======
                     <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4 backdrop-blur-[2px]">
                       <button
                         type="button"
@@ -233,7 +155,6 @@ const Projects = () => {
                         {project.category}
                       </Badge>
                     </div>
->>>>>>> 0bac050 (change location just)
                   </div>
 
                   {/* Project Info */}
@@ -306,23 +227,6 @@ const Projects = () => {
         onClose={() => setSelectedProject(null)}
         maxWidthClass={selectedProject?.caseStudy ? 'sm:max-w-6xl' : 'sm:max-w-5xl'}
       >
-<<<<<<< HEAD
-        {selectedProject && selectedProject.caseStudy ? (
-          <ProjectCaseStudy project={selectedProject} />
-        ) : selectedProject && (
-          <div className="flex flex-col lg:flex-row h-full">
-            <div className="w-full lg:w-1/2 bg-black/20 p-4 sm:p-8 flex items-center justify-center shrink-0">
-              <img 
-                src={selectedProject.image} 
-                onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800" }}
-                alt={selectedProject.title}
-                className="rounded-2xl shadow-2xl max-w-full h-auto object-cover max-h-[30vh] md:max-h-[60vh]"
-              />
-            </div>
-            <div className="flex-1 p-6 lg:p-12 overflow-y-auto">
-              <div className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4">
-                {selectedProject.category}
-=======
         {selectedProject &&
           (selectedProject.caseStudy ? (
             <CaseStudyModalContent project={selectedProject} />
@@ -358,7 +262,6 @@ const Projects = () => {
                     )}
                   </div>
                 )}
->>>>>>> 0bac050 (change location just)
               </div>
               <div className="flex-1 p-6 lg:p-12 overflow-y-auto">
                 <div className="flex flex-wrap items-center gap-2 mb-4">
@@ -463,29 +366,6 @@ const Projects = () => {
                   )}
                 </div>
               </div>
-<<<<<<< HEAD
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-6 sm:pt-8 border-t border-[var(--border)] mt-auto">
-                <Button 
-                  className="w-full" 
-                  icon={Github}
-                  onClick={() => window.open(selectedProject.github, '_blank')}
-                >
-                  Source Code
-                </Button>
-                {selectedProject.demo && selectedProject.demo !== '#' && (
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    icon={ExternalLink}
-                    onClick={() => window.open(selectedProject.demo, '_blank')}
-                  >
-                    Live Demo
-                  </Button>
-                )}
-              </div>
-=======
->>>>>>> 0bac050 (change location just)
             </div>
           ))}
       </Modal>

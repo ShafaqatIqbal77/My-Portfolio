@@ -94,31 +94,6 @@ const Skills = () => {
           </div>
         </div>
 
-<<<<<<< HEAD
-        {/* PART B - Skill Bars */}
-        <div className="max-w-2xl mx-auto mb-16 md:mb-20">
-          <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 flex items-center gap-2">
-            <span className="w-6 sm:w-8 h-1 bg-primary rounded-full"></span>
-            Frontend Development
-          </h3>
-          <div className="space-y-6 sm:space-y-8">
-            {skills.frontend.map((skill, i) => (
-              <div key={i}>
-                <div className="flex justify-between mb-2 text-sm sm:text-base">
-                  <span className="font-medium">{skill.name}</span>
-                  <span className="text-[var(--text-muted)]">{skill.level}%</span>
-                </div>
-                <div className="h-2 bg-[var(--bg-card)] rounded-full overflow-hidden border border-[var(--border)]">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.1 }}
-                    className="h-full bg-gradient-to-r from-primary to-accent"
-                  />
-                </div>
-              </div>
-=======
         {/* PART B - MERN & Application Skills */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 mb-16 md:mb-20">
           {/* Frontend Skills */}
@@ -254,7 +229,6 @@ const Skills = () => {
                 <img src={tool.icon} alt={tool.name} className="w-5 h-5 sm:w-6 sm:h-6" />
                 <span className="font-medium text-sm sm:text-base">{tool.name}</span>
               </motion.div>
->>>>>>> 0bac050 (change location just)
             ))}
           </div>
         </div>

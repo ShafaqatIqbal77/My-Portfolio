@@ -1,9 +1,6 @@
 export const skills = {
   frontend: [
     { name: "HTML/CSS", level: 95, color: "#e34c26" },
-<<<<<<< HEAD
-    { name: "React.js", level: 85, color: "#61dafb" }
-=======
     { name: "JavaScript", level: 90, color: "#f7df1e" },
     { name: "React.js", level: 85, color: "#61dafb" },
     { name: "TypeScript", level: 75, color: "#3178c6" },
@@ -46,11 +43,13 @@ export const skills = {
     { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
     { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
     { name: "Jira", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" }
->>>>>>> 0bac050 (change location just)
   ],
   techIcons: [
     { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
     { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" }
+    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
+    { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" }
   ]
 };
